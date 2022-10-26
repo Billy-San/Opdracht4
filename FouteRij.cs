@@ -10,7 +10,7 @@ namespace Opdracht4
     {
         private List<T> rij = new List<T>();
         private List<T> rij2 = new List<T>();
-        private T Value;
+        private T val;
 
 
         public T inDeRij(T element)
@@ -18,26 +18,26 @@ namespace Opdracht4
             rij.Add(element);
             if (rij.Count == 1)
             {
-                Value = element;
+                val = element;
             }
-            return Value;
+            return val;
         }
 
         public T Delete()
         {
-            rij.Remove(Value);
+            rij.Remove(val);
             if (rij.Count > 0)
             {
-                Value = rij[0];
+                val = rij[0];
             }
-            return Value;
+            return val;
         }
 
         public T Next()
         {
-            if (rij.Count > 0)
+            if (rij.Count < 0)
             {
-                int rowNumber = rij.IndexOf(Value);
+                int rowNumber = rij.IndexOf(val);
                 if (rowNumber == rij.Count - 1)
                 {
                     return rij[0];
@@ -47,7 +47,7 @@ namespace Opdracht4
                     return rij[rowNumber + 1];
                 }
             }
-            return Value;
+            return val;
         }
 
         public bool isEmpty()
@@ -72,11 +72,11 @@ namespace Opdracht4
         {
             if (rij.Count <= 0)
             {
-                rij.Remove(Value);
-                rij.Add(Value);
-                Value = rij[0];
+                rij.Remove(val);
+                rij.Add(val);
+                val = rij[0];
             }
-            return Value;
+            return val;
 
         }
 
@@ -91,7 +91,7 @@ namespace Opdracht4
 
             foreach (T ele in rij)
             {
-                showList += ele.ToString() + "\n" + " " + ", ";
+                showList += ele.ToString();
             }
 
             return showList;
